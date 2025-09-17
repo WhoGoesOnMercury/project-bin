@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+# Anything gathered from this URL is available to everyone
 URL = "https://enroll.dlsu.edu.ph/dlsu/view_course_offerings"
 # Include vaid ID number here
 ID_NO = 0
