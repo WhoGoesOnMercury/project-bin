@@ -3,13 +3,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Anything gathered from this URL is available to everyone
 URL = "https://enroll.dlsu.edu.ph/dlsu/view_course_offerings"
-# Include vaid ID number here
-ID_NO = 0
-TIMEOUT = 10 
-COURSE_CODES = ["STMETHD", "STDISCM", "CCINOV8", "GEWORLD", "LCFAITH", "GEETHIC"]
+TIMEOUT = 10
+ID_NO = int(os.getenv("ID_NO"))
+COURSE_CODES = os.getenv("COURSE_CODES").split(",")
 
 def getCourseList(driver, course_code):
     try:
