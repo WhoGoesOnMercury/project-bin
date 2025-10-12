@@ -19,19 +19,3 @@ It is noteworthy that you should read the comments in the files themselves. The
 READMEs can only discuss so much without first familiarizing yourself with the
 code itself.
 
-## Why in C?
-
-In order to understand complex systems, one must dilute it down to its basic
-constituents. The C language is greatly known for its non-abstract and manually-written 
-nature. Creating makeshift data structures using C will hopefully allow
-for mastery. 
-
-This whole project could be written in C++ (an Object-oriented programming language) 
-but I concur. 
-
-Given that you have stumbled upon this repository, I would assume that you already
-have a working compiler for the C language, and also that you know how to run and
-compile C codes. 
-
-The `gcc` version I use is `gcc (tdm64-1) 10.3.0`.
-
