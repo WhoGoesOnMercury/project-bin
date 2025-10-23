@@ -1,0 +1,5 @@
+[2025-10-23 22:00:03] Instance [0] started
+[2025-10-23 22:00:03] Searching for party
+[2025-10-23 22:00:04] Party found! Starting run for 12 seconds: Party consists of 0_tank, 5_healer, 10_dps, 11_dps, 12_dps
+[2025-10-23 22:00:16] Party is done, placing players back into the pool
+[2025-10-23 22:00:16] Instance [0] stopping

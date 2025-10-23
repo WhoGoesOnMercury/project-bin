@@ -1,0 +1,4 @@
+[2025-10-23 22:00:03] Instance [1] started
+[2025-10-23 22:00:03] Searching for party
+[2025-10-23 22:00:05] Searching for party
+[2025-10-23 22:00:07] Instance [1] stopping
