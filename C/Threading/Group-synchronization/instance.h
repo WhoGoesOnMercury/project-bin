@@ -56,27 +56,56 @@ typedef struct {
 
 void *instance_thread(void *arg);
 
-// No input validation 
 CONFIG set_config() {
     CONFIG config_data;
 
     printf("Enter maximum number of concurrent instances: ");
-    scanf("%d", &config_data.instance_count);
+    if (scanf("%d", &config_data.instance_count) != 1 || config_data.instance_count <= 1) {
+        printf("Invalid input. Defaulting instance_count to 1.\n");
+        config_data.instance_count = 1;
+        while (getchar() != '\n'); 
+    }
 
     printf("Enter number of tanks in the queue: ");
-    scanf("%d", &config_data.tank_count);
+    if (scanf("%d", &config_data.tank_count) != 1 || config_data.tank_count < 1) {
+        printf("Invalid input. Defaulting tank_count to 1.\n");
+        config_data.tank_count = 1;
+        while (getchar() != '\n');
+    }
 
     printf("Enter number of healers in the queue: ");
-    scanf("%d", &config_data.healer_count);
+    if (scanf("%d", &config_data.healer_count) != 1 || config_data.healer_count < 1) {
+        printf("Invalid input. Defaulting healer_count to 1.\n");
+        config_data.healer_count = 1;
+        while (getchar() != '\n');
+    }
 
     printf("Enter number of DPS in the queue: ");
-    scanf("%d", &config_data.dps_count);
+    if (scanf("%d", &config_data.dps_count) != 1 || config_data.dps_count < 3) {
+        printf("Invalid input. Defaulting dps_count to 3.\n");
+        config_data.dps_count = 3;
+        while (getchar() != '\n');
+    }
 
-    printf("Enter minimum instance completion time: ");
-    scanf("%d", &config_data.time_min);
+    printf("Enter minimum instance completion time (seconds): ");
+    if (scanf("%d", &config_data.time_min) != 1 || config_data.time_min <= 0) {
+        printf("Invalid input. Defaulting time_min to 1.\n");
+        config_data.time_min = 1;
+        while (getchar() != '\n');
+    }
 
-    printf("Enter maximum instance completion time: ");
-    scanf("%d", &config_data.time_max);
+    printf("Enter maximum instance completion time (seconds): ");
+    if (scanf("%d", &config_data.time_max) != 1 || config_data.time_max <= 0) {
+        printf("Invalid input. Defaulting time_max to 10.\n");
+        config_data.time_max = 10;
+        while (getchar() != '\n');
+    }
+
+    if (config_data.time_max < config_data.time_min) {
+        int tmp = config_data.time_min;
+        config_data.time_min = config_data.time_max;
+        config_data.time_max = tmp;
+    }
 
     return config_data;
 }

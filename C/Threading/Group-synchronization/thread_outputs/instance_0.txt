@@ -1,5 +1,17 @@
-[2025-10-23 22:00:03] Instance [0] started
-[2025-10-23 22:00:03] Searching for party
-[2025-10-23 22:00:04] Party found! Starting run for 12 seconds: Party consists of 0_tank, 5_healer, 10_dps, 11_dps, 12_dps
-[2025-10-23 22:00:16] Party is done, placing players back into the pool
-[2025-10-23 22:00:16] Instance [0] stopping
+[2025-10-24 20:10:56] Instance [0] started
+[2025-10-24 20:10:56] Searching for party
+[2025-10-24 20:10:57] Party found! Starting run for 2 seconds: Party consists of 0_tank, 1_healer, 2_dps, 3_dps, 4_dps
+[2025-10-24 20:10:59] Party is done, placing players back into the pool
+[2025-10-24 20:10:59] Searching for party
+[2025-10-24 20:11:00] Party found! Starting run for 8 seconds: Party consists of 0_tank, 1_healer, 2_dps, 3_dps, 4_dps
+[2025-10-24 20:11:08] Party is done, placing players back into the pool
+[2025-10-24 20:11:08] Searching for party
+[2025-10-24 20:11:09] Party found! Starting run for 5 seconds: Party consists of 0_tank, 1_healer, 2_dps, 3_dps, 4_dps
+[2025-10-24 20:11:14] Party is done, placing players back into the pool
+[2025-10-24 20:11:14] Searching for party
+[2025-10-24 20:11:15] Party found! Starting run for 1 seconds: Party consists of 0_tank, 1_healer, 2_dps, 3_dps, 4_dps
+[2025-10-24 20:11:16] Party is done, placing players back into the pool
+[2025-10-24 20:11:16] Searching for party
+[2025-10-24 20:11:17] Party found! Starting run for 10 seconds: Party consists of 0_tank, 1_healer, 2_dps, 3_dps, 4_dps
+[2025-10-24 20:11:27] Party is done, placing players back into the pool
+[2025-10-24 20:11:27] Instance [0] stopping
