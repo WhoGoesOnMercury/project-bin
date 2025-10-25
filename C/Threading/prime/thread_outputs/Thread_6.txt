@@ -1,4 +1,0 @@
-Thread 6
-Lower Bound: 32770
-Upper Bound: 38231
-

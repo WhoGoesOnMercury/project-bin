@@ -1,4 +1,0 @@
-Thread 3
-Lower Bound: 16387
-Upper Bound: 21848
-

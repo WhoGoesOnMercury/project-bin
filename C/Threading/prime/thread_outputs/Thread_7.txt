@@ -1,4 +1,0 @@
-Thread 7
-Lower Bound: 38231
-Upper Bound: 43692
-
