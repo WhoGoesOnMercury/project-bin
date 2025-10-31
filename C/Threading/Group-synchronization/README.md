@@ -17,9 +17,9 @@ The config file contains the following:
 6. Maximum time for instance completion     `(Tmax)`
 
 Conditions:
-i. `N > 0`
-ii. `(T >= 1) && (H >= 1) && (D >= 3)`
-iii. `Tmax > Tmin > 0`
+1. `N > 0`
+2. `(T >= 1) && (H >= 1) && (D >= 3)`
+3. `Tmax > Tmin > 0`
 
 The config file can be manually set in the program. Simply change the `int` variable
 `config_type` to `0` in `main.c`.
