@@ -1,4 +1,28 @@
-[2025-10-23 22:00:03] Instance [1] started
-[2025-10-23 22:00:03] Searching for party
-[2025-10-23 22:00:05] Searching for party
-[2025-10-23 22:00:07] Instance [1] stopping
+[2025-11-07 21:17:02] Instance [1] started
+[2025-11-07 21:17:02] Searching for party
+[2025-11-07 21:17:03] Party found! Starting run for 1 seconds: Party consists of 2_tank, 22_healer, 31_dps, 32_dps, 33_dps
+[2025-11-07 21:17:04] Party is done, placing players back into the pool
+[2025-11-07 21:17:04] Searching for party
+[2025-11-07 21:17:05] Party found! Starting run for 1 seconds: Party consists of 1_tank, 21_healer, 28_dps, 29_dps, 30_dps
+[2025-11-07 21:17:06] Party is done, placing players back into the pool
+[2025-11-07 21:17:06] Searching for party
+[2025-11-07 21:17:07] Party found! Starting run for 7 seconds: Party consists of 4_tank, 24_healer, 37_dps, 38_dps, 39_dps
+[2025-11-07 21:17:14] Party is done, placing players back into the pool
+[2025-11-07 21:17:14] Searching for party
+[2025-11-07 21:17:15] Party found! Starting run for 10 seconds: Party consists of 2_tank, 22_healer, 31_dps, 32_dps, 33_dps
+[2025-11-07 21:17:25] Party is done, placing players back into the pool
+[2025-11-07 21:17:25] Searching for party
+[2025-11-07 21:17:27] Searching for party
+[2025-11-07 21:17:29] Searching for party
+[2025-11-07 21:17:30] Party found! Starting run for 2 seconds: Party consists of 2_tank, 22_healer, 31_dps, 32_dps, 33_dps
+[2025-11-07 21:17:32] Party is done, placing players back into the pool
+[2025-11-07 21:17:32] Searching for party
+[2025-11-07 21:17:34] Searching for party
+[2025-11-07 21:17:36] Searching for party
+[2025-11-07 21:17:38] Searching for party
+[2025-11-07 21:17:40] Searching for party
+[2025-11-07 21:17:41] Party found! Starting run for 3 seconds: Party consists of 3_tank, 23_healer, 34_dps, 35_dps, 36_dps
+[2025-11-07 21:17:44] Party is done, placing players back into the pool
+[2025-11-07 21:17:44] Instance [1] stopping
+[2025-11-07 21:17:44] Total parties accepted into dungeon: 6
+[2025-11-07 21:17:44] Total active time: 24

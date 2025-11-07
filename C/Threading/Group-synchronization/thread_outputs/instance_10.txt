@@ -1,0 +1,24 @@
+[2025-11-07 21:17:02] Instance [10] started
+[2025-11-07 21:17:02] Searching for party
+[2025-11-07 21:17:04] Searching for party
+[2025-11-07 21:17:06] Searching for party
+[2025-11-07 21:17:08] Searching for party
+[2025-11-07 21:17:10] Searching for party
+[2025-11-07 21:17:12] Searching for party
+[2025-11-07 21:17:14] Searching for party
+[2025-11-07 21:17:16] Searching for party
+[2025-11-07 21:17:18] Searching for party
+[2025-11-07 21:17:20] Searching for party
+[2025-11-07 21:17:21] Party found! Starting run for 7 seconds: Party consists of 3_tank, 23_healer, 34_dps, 35_dps, 36_dps
+[2025-11-07 21:17:28] Party is done, placing players back into the pool
+[2025-11-07 21:17:28] Searching for party
+[2025-11-07 21:17:30] Searching for party
+[2025-11-07 21:17:31] Party found! Starting run for 3 seconds: Party consists of 1_tank, 21_healer, 28_dps, 29_dps, 30_dps
+[2025-11-07 21:17:34] Party is done, placing players back into the pool
+[2025-11-07 21:17:34] Searching for party
+[2025-11-07 21:17:35] Party found! Starting run for 6 seconds: Party consists of 0_tank, 20_healer, 25_dps, 26_dps, 27_dps
+[2025-11-07 21:17:41] Party is done, placing players back into the pool
+[2025-11-07 21:17:41] Searching for party
+[2025-11-07 21:17:43] Instance [10] stopping
+[2025-11-07 21:17:43] Total parties accepted into dungeon: 3
+[2025-11-07 21:17:43] Total active time: 16

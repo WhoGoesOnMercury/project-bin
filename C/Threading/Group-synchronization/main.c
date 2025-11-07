@@ -6,7 +6,7 @@ int main(void) {
     MAIN_THREAD_DATA mtd = {0};
 
     // Choose config mode: 0 = user input, 1 = read config file
-    int config_type = 0;
+    int config_type = 1;
     if (config_type == 0) {
         mtd.config = set_config();
     } else {

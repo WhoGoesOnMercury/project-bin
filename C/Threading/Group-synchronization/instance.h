@@ -41,6 +41,8 @@ typedef struct {
     int time_max;
     PLAYER *party;         
     int party_size;
+    //int total_party_runs;
+    //int time_active;
     volatile bool *running;
     PLAYER_LIST *shared_pool; 
 } INSTANCE;
@@ -55,6 +57,7 @@ typedef struct {
 } MAIN_THREAD_DATA;
 
 void *instance_thread(void *arg);
+pthread_mutex_t global_log_lock = PTHREAD_MUTEX_INITIALIZER;
 
 CONFIG set_config() {
     CONFIG config_data;
@@ -176,27 +179,45 @@ void print_player_list(const PLAYER_LIST *pool) {
 
 void instance_log(int instance_id, const char *format, ...) {
     FILE *fp;
-    char filename[64];
+    char filename[128];
     time_t now = time(NULL);
     struct tm *t = localtime(&now);
     char timestamp[32];
 
     strftime(timestamp, sizeof(timestamp), "[%Y-%m-%d %H:%M:%S]", t);
     snprintf(filename, sizeof(filename), "thread_outputs/instance_%d.txt", instance_id);
+    
+    va_list args1, args2;
+    va_start(args1, format);
+    va_copy(args2, args1);
 
+    // Individual instance log
     fp = fopen(filename, "a");
-    if (!fp) return;  
+    if (fp) {
+        fprintf(fp, "%s ", timestamp);
+        vfprintf(fp, format, args1);
+        fprintf(fp, "\n");
+        fclose(fp);
+    }
 
-    fprintf(fp, "%s ", timestamp);
+    // Main log
+    pthread_mutex_lock(&global_log_lock);
+    FILE *main_fp = fopen("thread_outputs/main.log", "a");
+    if (main_fp) {
+        fprintf(main_fp, "%s [Instance %d] ", timestamp, instance_id);
+        vfprintf(main_fp, format, args2);
+        fprintf(main_fp, "\n");
+        fclose(main_fp);
+    }
+    pthread_mutex_unlock(&global_log_lock);
 
-    // For variables arguments placed using the ... ; Dynamic and more concise 
-    va_list args;
-    va_start(args, format);
-    vfprintf(fp, format, args);
-    va_end(args);
+    va_end(args1);
+    va_end(args2);
+}
 
-    fprintf(fp, "\n");
-    fclose(fp);
+static unsigned int rand_r_win(unsigned int *seed) {
+    *seed = *seed * 1103515245 + 12345;
+    return (*seed / 65536) % 32768;
 }
 
 void *instance_thread(void *arg) {
@@ -205,8 +226,11 @@ void *instance_thread(void *arg) {
     int time_min = instance->time_min;
     int time_max = instance->time_max;
     int tmp, range, duration;
-
+    int total_party_runs = 0, time_active = 0;
     char party_desc[256];
+
+    // Create a thread-local seed unique per thread
+    unsigned int seed = (unsigned int)time(NULL) ^ (unsigned int)pthread_self();
 
     instance_log(instance->id, "Instance [%d] started", instance->id);
 
@@ -215,7 +239,6 @@ void *instance_thread(void *arg) {
 
         Sleep(1000);
 
-        // Lock shared pool
         pthread_mutex_lock(&instance->shared_pool->lock);
 
         int found_tank = -1, found_healer = -1, found_dps[3] = {-1, -1, -1};
@@ -249,10 +272,9 @@ void *instance_thread(void *arg) {
 
         pthread_mutex_unlock(&instance->shared_pool->lock);
 
-        // Determine run duration, need more random duration determiner
         if (time_max < time_min) { tmp = time_min; time_min = time_max; time_max = tmp; }
         range = time_max - time_min + 1;
-        duration = time_min + (range > 0 ? rand() % range : 0);
+        duration = time_min + (range > 0 ? rand_r_win(&seed) % range : 0);
 
         snprintf(party_desc, sizeof(party_desc),
                  "Party found! Starting run for %d seconds: Party consists of %d_tank, %d_healer, %d_dps, %d_dps, %d_dps",
@@ -260,6 +282,7 @@ void *instance_thread(void *arg) {
         instance_log(instance->id, "%s", party_desc);
 
         Sleep(duration * 1000);
+        time_active += duration;
 
         pthread_mutex_lock(&instance->shared_pool->lock);
 
@@ -274,12 +297,16 @@ void *instance_thread(void *arg) {
         pthread_mutex_unlock(&instance->shared_pool->lock);
 
         instance_log(instance->id, "Party is done, placing players back into the pool");
+        total_party_runs += 1;
         instance->is_party_complete = false;
     }
 
     instance_log(instance->id, "Instance [%d] stopping", instance->id);
+    instance_log(instance->id, "Total parties accepted into dungeon: %d", total_party_runs);
+    instance_log(instance->id, "Total active time: %d", time_active);
     return NULL;
 }
+
 
 void *main_thread(void *arg) {
     MAIN_THREAD_DATA *mtd = (MAIN_THREAD_DATA *)arg;
