@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  producer:
+    build:
+      context: .
+      dockerfile: ./producer/Dockerfile.producer
+    volumes:
+      - ./videos:/app/videos   # Mount host videos folder
+    depends_on:
+      - consumer
+
+  consumer:
+    build:
+      context: .
+      dockerfile: ./consumer/Dockerfile.consumer
+    ports:
+      - "50051:50051"
+      - "8080:8080"
+    volumes:
+      - ./received_videos:/app/received_videos   # Mount host folder for saved videos
+
+volumes:
+  received: {}
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Video Stream</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .video-item { margin-bottom: 20px; }
+    video { max-width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>Live Videos</h1>
+    <div id="video-list"></div>
+
+    <script>
+        const videoList = document.getElementById("video-list");
+
+        // Load existing videos on page load
+        fetch('/videos-list')
+        .then(res => res.json())
+        .then(files => {
+            files.forEach(filename => {
+                const div = document.createElement("div");
+                div.className = "video-item";
+                div.innerHTML = `<video controls autoplay>
+                    <source src="/video/${filename}" type="video/mp4">
+                </video><p>${filename}</p>`;
+                videoList.prepend(div);
+            });
+        });
+
+        // SSE for new videos
+        const evtSource = new EventSource("/events");
+        evtSource.onmessage = function(e) {
+            const filename = e.data;
+            const div = document.createElement("div");
+            div.className = "video-item";
+            div.innerHTML = `<video controls autoplay>
+                <source src="/video/${filename}" type="video/mp4">
+            </video><p>${filename}</p>`;
+            videoList.prepend(div);
+        };
+    </script>
+</body>
+</html>

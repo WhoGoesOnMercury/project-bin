@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Container for all videos */
+#video-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Each video item */
+.video-item {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 320px;
+    text-align: center;
+}
+
+/* Video element */
+.video-item video {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Video filename */
+.video-item p {
+    margin-top: 8px;
+    font-size: 14px;
+    word-break: break-word;
+}
+
+#status {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
