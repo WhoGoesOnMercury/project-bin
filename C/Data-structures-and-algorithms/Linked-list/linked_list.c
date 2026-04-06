@@ -38,8 +38,26 @@ void view_list(node* head_node) {
 }
 
 void delete_node(node* head_node, int value) {
-    
+    int running = 1;
+
+    node* ptr_1 = head_node;
+    node* ptr_2 = malloc(sizeof(node));
+
+    while(running) {
+        if(ptr_1->value == value) {
+            ptr_2->next_node = ptr_1->next_node;
+            free(ptr_1);
+            running = 0;
+        } else if(ptr_1->next_node == NULL) {
+            printf("\nValue \"%d\" does not exist in the linked list.", value);
+            running = 0;
+        } else {
+            ptr_2 = ptr_1;
+            ptr_1 = ptr_1->next_node;
+        }
+    }
 }
+
 
 
 

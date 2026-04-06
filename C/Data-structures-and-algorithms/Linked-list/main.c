@@ -29,15 +29,16 @@ int main() {
                     scanf("%d", &value);
 
                     add_to_list(head_node, value);
-
                     break;
-                    
                 case 2:
+                    printf("\n   LINKED LIST\n\n");
                     view_list(head_node);
                     break;
-
                 case 3:
-                   
+                    printf("Insert positive integer value: ");
+                    scanf("%d", &value);
+
+                    delete_node(head_node, value);
                     break;
 
                 case 4:
