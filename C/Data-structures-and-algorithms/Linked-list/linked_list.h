@@ -7,12 +7,12 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define SENTINEL_VALUE -1;
+#define SENTINEL_VALUE -1
 
 typedef struct node {
     int value;
-    struct node* pointer;
+    struct node* next_node;
 } node;
 
-static node NULL_NODE = {SENTINEL_VALUE, NULL};
+static struct node NULL_NODE = {SENTINEL_VALUE, NULL};
 
