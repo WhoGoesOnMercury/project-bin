@@ -9,10 +9,11 @@
 
 #define SENTINEL_VALUE -1
 
-typedef struct node {
+typedef struct doubly {
+    struct doubly* prev_node;
     int value;
-    struct node* next_node;
-} node;
+    struct doubly* next_node;
+} doubly;
 
-static struct node NULL_NODE = {SENTINEL_VALUE, NULL};
+static struct doubly d_NULL_NODE = {NULL, SENTINEL_VALUE, NULL};
 
