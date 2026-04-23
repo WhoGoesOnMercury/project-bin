@@ -5,10 +5,12 @@ void add_to_list(linked_list* linked_list, int value, int mode) {
 
     node* ptr_1 = linked_list->head_node;
     node* ptr_2 = malloc(sizeof(node));
+
+    node* head = linked_list->head_node;
     node* tail = linked_list->tail_node;
 
     while(running) {
-        if(ptr_1->value == SENTINEL_VALUE || ptr_1 != tail) {
+        if(ptr_1->value == SENTINEL_VALUE || ptr_1 == tail) {
             ptr_1->value = value;
             ptr_1->next_node = malloc(sizeof(node));
             *ptr_1->next_node = NULL_NODE;
@@ -19,8 +21,12 @@ void add_to_list(linked_list* linked_list, int value, int mode) {
                     break;
                 case 3:
                     ptr_1->prev_node = ptr_2;
-                    ptr_1->next_node = linked_list->head_node;
-                    linked_list->tail_node = ptr_1;
+                    if(linked_list->count > 1) {
+                        ptr_1->next_node = head;
+                        linked_list->tail_node = ptr_1;
+                        linked_list->head_node->prev_node = ptr_1;
+                    }
+                    linked_list->count += 1;
                     break;
             }
 
@@ -32,16 +38,19 @@ void add_to_list(linked_list* linked_list, int value, int mode) {
     }
 }
 
-void view_list(linked_list* linked_list) {
+void view_list(linked_list* linked_list, int mode) {
     int running = 1, list_count = 0;
 
     node* ptr = linked_list->head_node;
-    node* tail = linked_list->tail_node;
 
     printf("    Index\n");
  
     while(running) {
-        if(ptr->value != SENTINEL_VALUE || ptr != tail) {
+        if(ptr->value != SENTINEL_VALUE) {
+            if((mode == 3 && list_count < linked_list->count) != 1) {
+                running = 0;
+                break;
+            }
             printf("    %d        Previous: %p  \n", list_count, ptr->prev_node);
             printf("             Value:    %d   \n", ptr->value);
             printf("             Pointer:  %p   \n", ptr);

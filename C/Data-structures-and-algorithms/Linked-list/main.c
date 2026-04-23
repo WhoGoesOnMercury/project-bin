@@ -16,6 +16,7 @@ int main() {
 
     linked_list->head_node = head;
     linked_list->tail_node = tail;
+    linked_list->count = 0;
 
     printf("\n=== LINKED LIST TYPE ===\n");
     printf("[1] SINGLY\n");            
@@ -50,7 +51,7 @@ int main() {
                     break;
                 case 2:
                     printf("\n    LINKED LIST\n");
-                    view_list(linked_list);
+                    view_list(linked_list, mode);
                     break;
                 case 3:
                     printf("Insert positive integer value: ");
