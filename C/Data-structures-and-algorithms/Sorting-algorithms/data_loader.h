@@ -4,15 +4,13 @@
 #include <stdio.h>
 #include <time.h>
 #include <windows.h>
-#define NK_IMPLEMENTATION
-#include "nuklear.h"
 
 /* Set to preferred data size and maximum integer value—not exceeding int limit
                                                         Otherwise, just use the
                                                         unsigned int data type.
 */
-#define DATA_SIZE 10      
-#define MAX_INT_VALUE 1000000  
+#define DATA_SIZE 100000      
+#define MAX_INT_VALUE 10000000
 
 int* populate_random_integer_array() {
     int* data_array = malloc(DATA_SIZE * sizeof(int));
